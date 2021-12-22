@@ -111,7 +111,7 @@ if __name__ == '__main__':
 
     # Longitudinal Sweep
     for x in range(-20, 10, 1):
-        accel = [x/10, 0, 0]
+        accel = [x / 10, 0, 0]
 
         solution = force_calculator.calc_forces(accel, df)
         top_front_for_a = np.append(top_front_for_a, solution[0])
@@ -133,7 +133,7 @@ if __name__ == '__main__':
     # print(top_front_for_a)
     # plt.show()
 
-    fig, axs = plt.subplots(2,1)
+    fig, axs = plt.subplots(2, 1)
     tffa, = axs[0].plot(xVal, top_front_for_a, 'r', label=index_[0])
     tfaa, = axs[0].plot(xVal, top_front_aft_a, 'orange', label=index_[1])
     push, = axs[0].plot(xVal, push, 'g', label=index_[2])
@@ -144,7 +144,7 @@ if __name__ == '__main__':
     axs[0].set_xlabel('Longitudinal G')
     axs[0].set_ylabel('Force (N)')
     axs[0].grid(True)
-    axs[0].set_yticks(np.arange(-5000,5000,100), minor=True)
+    axs[0].set_yticks(np.arange(-5000, 5000, 100), minor=True)
     axs[0].grid(which='minor', alpha=0.2, linestyle='--')
 
     # Lateral Sweep
@@ -155,7 +155,7 @@ if __name__ == '__main__':
     bot_front_aft_a = []
     tierod = []
     for y in range(-20, 20, 1):
-        accel = [0, y/10, 0]
+        accel = [0, y / 10, 0]
 
         solution = force_calculator.calc_forces(accel, df)
         top_front_for_a = np.append(top_front_for_a, solution[0])
@@ -172,11 +172,11 @@ if __name__ == '__main__':
     bffa, = axs[1].plot(yVal, bot_front_for_a, 'b', label=index_[3])
     bfaa, = axs[1].plot(yVal, bot_front_aft_a, 'indigo', label=index_[4])
     tie, = axs[1].plot(yVal, tierod, 'violet', label=index_[5])
-    axs[1].legend(handles=[tffa, tfaa, push, bffa, bfaa, tie], loc='upper right')
+    axs[1].legend(handles=[tffa, tfaa, push, bffa, bfaa, tie], loc='upper left')
     axs[1].set_xlabel('Lateral G')
     axs[1].set_ylabel('Force (N)')
     axs[1].grid(True)
-    axs[1].set_yticks(np.arange(-5000,5000,100), minor=True)
+    axs[1].set_yticks(np.arange(-5000, 5000, 100), minor=True)
     axs[1].grid(which='minor', alpha=0.2, linestyle='--')
 
     fig.suptitle('Front Right Corner Assembly Loads')
