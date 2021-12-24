@@ -38,4 +38,12 @@ def acceleration_based(x, y, z_force):
 
     forces[2] = ((mass * 9.81) * static_bias) / 2 + (weight_adj * 9.81)
     #print("Tire loading %: " + str(forces[2] / (9.81 * mass)))
+
+    # Dynamic load multiplication factors
+    # Vertical = 3
+    # Long/lateral = 1.3
+
+    forces[0] = forces[0] * 1.3
+    forces[1] = forces[1] * 1.3
+    forces[2] = forces[2] * 3
     return forces

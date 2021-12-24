@@ -84,23 +84,10 @@ if __name__ == '__main__':
     try:
         df = pd.read_excel('suspension_points.xlsx', index_col=0)
     except FileNotFoundError as e:
-        # print("No suspension point file found...")
-        # print("Creating sheet...")
 
         df = pd.DataFrame(data)
         df.index = index_
         df.to_excel('suspension_points.xlsx')
-
-    # print("Enter Tire Force Vector (separated by commas)")
-    # accels = input("Car x,y acceleration (G) and downforce (N) 'x,y,z': ").split(',')
-    #
-    # solution = force_calculator.calc_forces(accels, df)
-    # print("+: Tension")
-    # print("-: Compression")
-    # i = 0
-    # for linkage in solution:
-    #     print(index_[i] + ': ' + str(int(linkage)) + ' N')
-    #     i = i + 1
 
     top_front_for_a = []
     top_front_aft_a = []
@@ -122,16 +109,6 @@ if __name__ == '__main__':
         tierod = np.append(tierod, solution[5])
 
     xVal = np.arange(-2, 1, .1)
-    # #print(np.reshape(solution_matrix,(30,6)))
-    # plt.plot(xVal, top_front_for_a, 'r',
-    #          xVal, top_front_aft_a, 'orange',
-    #          xVal, push, 'g',
-    #          xVal, bot_front_for_a, 'b',
-    #          xVal, bot_front_aft_a, 'indigo',
-    #          xVal, tierod, 'violet')
-    #
-    # print(top_front_for_a)
-    # plt.show()
 
     fig, axs = plt.subplots(2, 1)
     tffa, = axs[0].plot(xVal, top_front_for_a, 'r', label=index_[0])
