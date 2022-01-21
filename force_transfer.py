@@ -1,10 +1,10 @@
 import numpy as np
 
-height_com = .29
+height_com = .32 # Measured weight bias with 70kg driver
 wheelbase = 1.55
 lateral_wheelbase = 1.219  # Front
 mass = 270
-car_COM_x = .823  # Assuming %47 front weight bias
+car_COM_x = .81  # Measured weight bias with 70kg driver
 
 
 # Calculate the forces on a tire based on the accelerations around the CoM of the Car
