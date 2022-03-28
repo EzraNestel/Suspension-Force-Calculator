@@ -98,7 +98,7 @@ if __name__ == '__main__':
 
     # Longitudinal Sweep
     for x in range(-20, 10, 1):
-        accel = [x / 10, 0, 0]
+        accel = [x / 10, 0, 500]
 
         solution = force_calculator.calc_forces(accel, df)
         top_front_for_a = np.append(top_front_for_a, solution[0])
@@ -121,7 +121,7 @@ if __name__ == '__main__':
     axs[0].set_xlabel('Longitudinal G')
     axs[0].set_ylabel('Force (N)')
     axs[0].grid(True)
-    axs[0].set_yticks(np.arange(-8000, 8000, 100), minor=True)
+    axs[0].set_yticks(np.arange(-9000, 8000, 100), minor=True)
     axs[0].grid(which='minor', alpha=0.2, linestyle='--')
 
     # Lateral Sweep
@@ -132,7 +132,7 @@ if __name__ == '__main__':
     bot_front_aft_a = []
     tierod = []
     for y in range(-20, 20, 1):
-        accel = [0, y / 10, 0]
+        accel = [0, y / 10, 500]
 
         solution = force_calculator.calc_forces(accel, df)
         top_front_for_a = np.append(top_front_for_a, solution[0])
@@ -153,7 +153,7 @@ if __name__ == '__main__':
     axs[1].set_xlabel('Lateral G')
     axs[1].set_ylabel('Force (N)')
     axs[1].grid(True)
-    axs[1].set_yticks(np.arange(-5000, 9000, 100), minor=True)
+    axs[1].set_yticks(np.arange(-9000, 9000, 100), minor=True)
     axs[1].grid(which='minor', alpha=0.2, linestyle='--')
 
     fig.suptitle('Front Right Corner Assembly Loads')

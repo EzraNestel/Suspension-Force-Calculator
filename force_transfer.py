@@ -6,7 +6,6 @@ lateral_wheelbase = 1.219  # Front
 mass = 270
 car_COM_x = .81  # Measured weight bias with 70kg driver
 
-
 # Calculate the forces on a tire based on the accelerations around the CoM of the Car
 # Use superposition to calculate total force on the car
 def acceleration_based(x, y, z_force):
@@ -46,4 +45,5 @@ def acceleration_based(x, y, z_force):
     forces[0] = forces[0] * 1.3
     forces[1] = forces[1] * 1.3
     forces[2] = forces[2] * 3
+    print(forces)
     return forces
